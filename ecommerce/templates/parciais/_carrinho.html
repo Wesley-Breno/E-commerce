@@ -1,5 +1,5 @@
 {% load static %}
-{% load filters %}
+{% load omfilters %}
 
 <div class="table-responsive">
     <table class="table">
@@ -11,36 +11,39 @@
             <th>Total</th>
         </tr>
 
-        {% for produto in carrinho.values %}
+        {% for linha in carrinho.values %}
         <tr>
             <td class="d-none d-lg-block">
-                <img class="cart-img" src="{% get_media_prefix %}{{ produto.imagem }}">
+                <img class="cart-img" src="{% get_media_prefix %}{{ linha.imagem }}">
             </td>
             <td>
-                <a href="{% url 'produto:detalhe' produto.slug %}">
-                    {{ produto.produto_nome }}
+                <a href="{% url 'produto:detalhe' linha.slug %}">
+                    {{ linha.produto_nome }}
                 </a>
-                <a class="ml-3" href="{% url 'produto:removerdocarrinho' %}?vid={{ produto.variacao_id }}">
+
+                <a class="ml-3" href="{% url 'produto:removerdocarrinho' %}?vid={{ linha.variacao_id }}">
                     <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
                 </a>
             </td>
-            <td>{{ produto.variacao_nome }}</td>
+            <td>{{ linha.variacao_nome }}</td>
             <td>
-                {{ produto.quantidade }} x
-                {% if produto.preco_unitario_promocional %}
-                {{ produto.preco_unitario_promocional }}
+                {{ linha.quantidade }} x
+                {% if linha.preco_unitario_promocional %}
+                {{ linha.preco_unitario_promocional }}
                 {% else %}
-                {{ produto.preco_unitario }}
+                {{ linha.preco_unitario }}
                 {% endif %}
             </td>
 
-            {% if produto.preco_quantitativo_promocional %}
-            <td>{{ produto.preco_quantitativo_promocional|formata_preco }}</td>
+            {% if linha.preco_quantitativo_promocional %}
+            <td>{{ linha.preco_quantitativo_promocional|formata_preco }}</td>
             {% else %}
-            <td>{{ produto.preco_quantitativo|formata_preco }}</td>
+            <td>{{ linha.preco_quantitativo|formata_preco }}</td>
             {% endif %}
+
         </tr>
         {% endfor %}
+
 
     </table>
 </div>
