@@ -12,6 +12,7 @@ def cart_totals(carrinho):
             item.get('preco_quantitativo_promocional')
             if item.get('preco_quantitativo_promocional')
             else item.get('preco_quantitativo')
-            for item in carrinho.values()
+            for item
+            in carrinho.values()
         ]
     )
