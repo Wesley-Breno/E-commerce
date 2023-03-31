@@ -1,6 +1,8 @@
 <h1 align="center">E-commerce</h1>
 
-<img src="https://media.licdn.com/dms/image/C4D22AQFHwc1rLGbfMw/feedshare-shrink_1280/0/1663149137118?e=1678924800&v=beta&t=wvSDfNf5en7nynafZ5FA3gxMJbsDu_VXGxbp4hy3yXE">
+<p align="center">
+  <img src="images_readme/ecommerce.png" width="700">
+</p>
 
 <h2 align="center">Descrição</h2>
 <p>
